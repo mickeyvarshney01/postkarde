@@ -1,0 +1,33 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+
+{% block table %}
+<br>
+<center>	
+<h1>Feedback History List</h1>
+<br>   <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>User Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in feedlist %}
+            <tr>
+                <td>{{row.feednm}}</td>
+                <td>{{row.feedarea}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+<br>
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+
+
+
+

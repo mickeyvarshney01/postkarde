@@ -1,0 +1,45 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+        {% block table %}
+        <center><h1>View Category</h1></center>  
+       <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Cat id</th>
+                <th>Category Name</th>
+                <th>Category Icon</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in managecat %}
+            <tr>
+                <td>{{row.catid}}</td>
+                <td>{{row.catnm}}</td>
+                <td>{{row.caticon}}</td>
+                <td>
+                {% if row.status %}
+                <a href={{curl}}myadmin/?adsid={{row.adsid}}&status=block>                    
+                <img title="Block Users" src="{% static 'images/active.png' %}" height="40" width="40" />
+                </a>
+                {% else %}
+                <a href={{curl}}myadmin/?adsid={{row.adsid}}&status=unblock>
+                <img title="Un-Block Users" src="{% static 'images/deactivated.png' %}" height="40" width="40" />       
+                </a>
+                {% endif %}
+                </td>
+                <td>
+                <a href={{curl}}myadmin/managecatstatus?catid={{row.catid}}&status=delete>
+                <img title="Un-Block Users" src="{% static 'images/delete.png' %}" height="40" width="40" />
+                </a>
+                </td>            
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}
+
+
+    

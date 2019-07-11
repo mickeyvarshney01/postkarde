@@ -1,0 +1,61 @@
+{% extends 'userhome.html' %}
+
+
+{% block slider %}	
+{% endblock %}	
+
+{% block category %}		
+
+
+  <section>
+    <div class="sign-in-wrapper">
+      <div class="agileinfo_signin">
+        <font style="color:orange;font-size:20px;">{{output}}</font>
+      <h3>Register</h3>
+       
+        <form method="post" action='{{curl}}user/feedback/'>
+          {% csrf_token %}
+          <input type="text" name="feednm" placeholder="Your Name" required=""> 
+         
+          <textarea name="feedarea" class="registration" placeholder="Enter your feedback here..!!!" rows="5" cols="33"></textarea>
+           <br></br>
+  
+          <input type="submit" value="feedback">
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+{% block grid %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

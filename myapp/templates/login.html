@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block slider %}
+
+<!-- sign in form -->
+	 <section>
+	 	
+		<div class="sign-in-wrapper">
+			<div class="agileinfo_signin">
+				<font style="color:orange;font-size:20px;">{{output}}</font>
+			<h3>Login</h3>
+				<form method="post" action={{curl}}login/>
+					{% csrf_token %}
+					<input type="email" name="email" placeholder="Your Email" required="" value={{cunm}}> 
+					<input type="password" name="password" placeholder="Password" required="" value={{cpass}}> 
+					<input type="submit" value="Login">
+					<div class="forgot-grid"  align="center">
+											<div class="forgot"  align="center">
+							<a href="#" data-toggle="modal" data-target="#myModal2">Forgot Password?</a>
+						</div>
+						<!-- Modal -->
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	</section>
+
+{% endblock %}
+{% block img1 %}
+{% endblock %}
+{% block img2 %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block banner %}
+{% endblock %}
+{% block grid %}
+{% endblock %}

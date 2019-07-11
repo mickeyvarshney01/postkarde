@@ -1,0 +1,32 @@
+{% extends 'adminhome.html' %}
+{% block table %}
+
+<!-- sign in form -->
+	 <section>
+	 	
+		<div class="sign-in-wrapper">
+			<div class="agileinfo_signin">
+				<font style="color:orange;font-size:20px;">{{output}}</font>
+			<h3>Add Category Here</h3>
+				<form enctype="multipart/form-data" method="post" action={{curl}}myadmin/addcat/ >
+                    {% csrf_token %}
+					<input type="text" name="catnm" placeholder="Category Name" required=""> 
+					<input type="file" name="caticon" > 
+					<input type="submit" name="s" value="Add Category">
+					<div class="forgot-grid"  align="center">
+						<!-- Modal -->
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	</section>
+
+{% endblock %}

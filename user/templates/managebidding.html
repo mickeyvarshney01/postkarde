@@ -1,0 +1,51 @@
+{% extends 'userhome.html' %}
+{% block header1 %}
+<!-- header -->
+<div class="header" id="home">
+	<div class="container">
+		<ul>
+			<li><h3 style="color:#f77737;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Welcome to User :{{sunm}}</a></h3></li>
+			
+		</ul>
+	</div>
+</div>
+<!-- //header -->
+{% endblock %}
+{% block category %}
+
+
+<center>
+<br>
+<h1>View All Bidding Products Here!!!!</h1>    		
+
+
+	{% for row in plist %}
+	<br><br>
+	<table style="border:5px solid #209D9D;border-radius:20px;" height="150" width="500" >
+	<tr>
+	<td rowspan="3" width="35%">
+	<center>
+	<img src={{media_url}}/{{row.file1}} width="150" height="100" />
+	</center>
+	</td>
+	<td><b>Ads Title : {{row.adstitle}}</b></td>
+	</tr>
+	<tr>
+	<td><b>Ads Price : &#8377;{{row.adsprice}}</b></td>
+	</tr>
+	<tr>
+	<td><b>Ads Description : {{row.adsdescription}}</b>
+	<br>
+	<a href={{curl}}user/bidding/?adsid={{row.adsid}}>Click To Bid Product....</a>
+	</td>
+	</tr>
+	</table>
+	{% endfor %}
+	
+</center>
+<br><br>
+
+
+{% endblock %}
+{% block banner %}
+{% endblock %}

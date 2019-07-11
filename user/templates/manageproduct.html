@@ -1,0 +1,70 @@
+{% extends 'userhome.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+{% block category %}
+<br>
+<center>    
+<h1>Manage Product List</h1>
+<br>   <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>AdsID/th>
+                <th>UId</th>
+                <th>Ads Title</th>
+                <th>Adssubcat</th>
+                <th>AdsDescription/th>
+                <th>AdsPrice</th>
+                <th>Files</th>
+                <th>AdsCity</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in manpro %}
+            <tr>
+                <td>{{row.adsid}}</td>
+                <td>{{row.uid}}</td>
+                <td>{{row.adstitle}}</td>
+                <td>{{row.adsdubcat}}</td>
+                <td>{{row.adsdescription}}</td>
+                <td>{{row.adsprice}}</td>
+                <td> 
+                <img src={{media_url}}/{{row.file1}} height="50" width="70"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src={{media_url}}/{{row.file2}} height="50" width="70"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src={{media_url}}/{{row.file3}} height="50" width="70"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src={{media_url}}/{{row.file4}} height="50" width="70"/> &nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>{{row.adscity}}</td>
+                <td>
+                {% if row.status %}
+                <a href={{curl}}user/manageproductstatus?adsid={{row.adsid}}&status=block>                    
+                <img title="Block Ads" src="{% static 'images/active.png' %}" height="40" width="40" />
+                </a>
+                {% else %}
+                <a href={{curl}}user/manageproductstatus?adsid={{row.adsid}}&status=unblock>
+                <img title="Un-Block Ads" src="{% static 'images/deactivated.png' %}" height="40" width="40" />     
+                </a>
+                {% endif %}
+                </td>
+                <td>
+                <a href={{curl}}user/manageproductstatus?adsid={{row.adsid}}&status=delete>
+                <img title="Delete Ads" src="{% static 'images/delete.png' %}" height="40" width="40" />
+                </a>
+                </td>            
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+<br>
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+{% block grid %}
+{% endblock %}
+
+
+

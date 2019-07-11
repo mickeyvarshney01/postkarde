@@ -1,0 +1,44 @@
+{% extends 'userhome.html' %}
+{% block slider %}	
+{% endblock %}	
+
+{% block category %}		
+<center>
+<br>
+<h3 class="btn btn-info">Buy product: </h3><br><hr>
+<h4 class="btn btn-info">Welcome user : {{ sunm }}</h4><br><hr>
+<h4 class="btn btn-info">AdsId : {{ adsid }}</h4><br><hr>
+<h4 class="btn btn-danger">Make payment for : &#8377; {{ adsprice }}</h4><br><hr>
+
+
+ <form action={{paypalURL}} method="post">
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business" value={{paypalID}}>
+        
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick">
+        
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value={{adsid}}>
+        <input type="hidden" name="item_number" value=1>
+        <input type="hidden" name="amount" value={{adsprice}}>
+        <input type="hidden" name="currency_code" value="USD">
+        
+        <!-- Specify URLs -->
+        <input type='hidden' name='cancel_return' value={{curl}}cancel/ >
+        <input type='hidden' name='return' value={{curl}}user/payment/?adsid={{adsid}}&adsprice={{adsprice}}&uid={{sunm}} >
+        
+        <!-- Display the payment button. -->
+        <input type="image" name="submit" border="0"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+    </form>
+
+
+
+
+</center>   
+{% endblock %}
+
+{% block bottom %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+{% block table %}
+<br>
+<center>	
+<h1>Payment History List</h1>
+<br>   <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>User ID</th>
+                <th>Ads ID</th>
+                <th>Ads price</th>
+                <th>Payment time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in paylist %}
+            <tr>
+                <td>{{row.txnid}}</td>
+                <td>{{row.uid}}</td>
+                <td>{{row.adsid}}</td>
+                <td>{{row.adsprice}}</td>
+                <td>{{row.ptime}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+<br>
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+
+
+
+

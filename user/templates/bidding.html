@@ -1,0 +1,78 @@
+{% extends 'userhome.html' %}
+<!-- header -->
+{% block header1 %}
+<!-- header -->
+<div class="header" id="home">
+	<div class="container">
+		<ul>
+			<li><h3 style="color:#f77737;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Welcome to User :{{sunm}}</a></h3></li>
+			
+		</ul>
+	</div>
+</div>
+<!-- //header -->
+{% endblock %}
+{% block category %}
+
+
+<center>
+<br>
+<h1>View Bidding And Make Auction!!!!</h1>
+<br>    		
+<h3>AdsId : {{ pdetails.0.adsid }}</h3>
+
+<table class="table" border="2" cellspacing="10">
+<tr>
+<td>AdsTitle</td>
+<td>{{ pdetails.0.adstitle }}</td>
+</tr>
+<tr>
+<td>AdsCategory</td>
+<td>{{ pdetails.0.adssubcat }}</td>
+</tr>
+<tr>
+<td>AdsDescription</td>
+<td>{{ pdetails.0.adsdescription }}</td>
+</tr>
+<tr>
+<td>Ads Initial Price</td>
+<td>{{ pdetails.0.adsprice }}</td>
+</tr>
+<tr>
+<td colspan="2">
+AdsFiles
+<br><br>
+<img src={{media_url}}/{{ pdetails.0.file1 }} height="50" width="70" /> &nbsp;&nbsp;
+<img src={{media_url}}/{{ pdetails.0.file2 }} height="50" width="70" /> &nbsp;&nbsp;
+<img src={{media_url}}/{{ pdetails.0.file3 }} height="50" width="70" /> &nbsp;&nbsp;
+<img src={{media_url}}/{{ pdetails.0.file4 }} height="50" width="70" /> &nbsp;&nbsp;
+</td>
+</tr>
+<tr>
+<td>AdsCity</td>
+<td>{{ pdetails.0.adscity }}</td>
+</tr>
+<tr>
+<td>Highest bidding price</td>
+<td>{{hprice}}</td>
+</tr>
+<tr>
+<td>New Auction Price</td>
+<td>
+<form method="post" action={{curl}}user/bidding/>
+{% csrf_token %}
+<input type="hidden" name="uid" value={{sunm}} />
+<input type="hidden" name="adsid" value={{pdetails.0.adsid}} />
+<input type="text" name="nprice" placeholder="Enter New Auction Price"/>
+<br>
+<input type="submit" value="Bid Product" />
+</form>
+</td>
+</tr>
+</table>
+
+
+</center>
+<br><br>
+
+{% endblock %}

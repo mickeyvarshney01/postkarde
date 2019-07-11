@@ -1,0 +1,91 @@
+{% extends 'userhome.html' %}
+{% block category %}
+<!-- Submit Ad -->
+	<div class="submit-ad main-grid-border">
+		<div class="container">
+			<h2 class="w3-head">Post Add Here</h2>
+			<div class="post-ad-form">
+				<span style="font-size:20px;color:orange;">{{output}}</span>
+				<form method="post" action={{curl}}user/addproduct/  enctype="multipart/form-data">
+                {% csrf_token %}
+                    <label>Ad Title <span>*</span></label>
+					<input type="text" name="adstitle" class="phone" placeholder="Enter Ad Title">
+                    <div class="clearfix"></div>
+					<label>Category <span>*</span></label>
+					<select class="" name="adssubcat">
+					  <option>Select Category</option>
+                      {% for row in subclist %}
+                      <option>{{row.subcatnm}}</option>
+			          {% endfor %}
+					</select>
+					<div class="clearfix"></div>
+					<label>Ad Description <span>*</span></label>
+					<textarea class="mess" name="adsdescription" placeholder="Write few lines about your product"></textarea>
+					<div class="clearfix"></div>
+
+					<label>Price<span>*</span></label>
+					<input type="text" name="adsprice" class="phone" placeholder="Enter Ad Title">
+                    <div class="clearfix"></div>
+					
+					<!---728x90--->
+				<div class="upload-ad-photos">
+				<label>Photos for your ad :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file" name="file1" id="fileselect" />
+						</div>
+                        <div>
+							<input type="file" name="file2" id="fileselect" />
+						</div>
+                        <div>
+							<input type="file" name="file3" id="fileselect" />
+						</div>
+                        <div>
+							<input type="file" name="file4" id="fileselect" />
+						</div>
+
+					<div class="clearfix"></div>
+				</div>		
+				
+					<div class="personal-details">
+					<label>City <span>*</span></label>
+					<select name="adscity" style="width:250px;">
+                    <option>Select City</option>
+                    <optgroup label="Madhya Pradesh">
+                        <option>Indore</option>
+                        <option>Ujjain</option>
+                        <option>Bhopal</option>
+                    </optgroup>
+                    <optgroup label="Maharastra">
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Nasik</option>
+                    </optgroup>
+                    </select>
+
+                    <div class="clearfix"></div>
+                    
+                    <input type="hidden" name="uid"  value="{{sunm}}" />
+
+                    <label>Enable Bidding</label>
+                    <input type="checkbox" name="chk"  value="1"/>
+                    
+                    <input type="submit" name="s" value="Post">
+                    <div class="clearfix"></div>
+
+
+                    </div>
+
+                    
+			</div>
+
+		</div>
+
+	</div>
+	<!-- // Submit Ad -->
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+{% block grid %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'adminhome.html' %}
+
+{% block table %}
+
+<!-- sign in form -->
+	 <section>
+	 	
+		<div class="sign-in-wrapper">
+			<div class="agileinfo_signin">
+				<font style="color:orange;font-size:20px;">{{output}}</font>
+			<h3>Add Sub Category</h3>
+				<form enctype="multipart/form-data" method="post" action={{curl}}myadmin/addsubcat/ >
+                    {% csrf_token %}
+
+                    <select style="width:250px;" name="catnm" class="registration">
+                        <option>Select category</option>
+                        {% for row in clist %}
+	                    <option>{{row.catnm}}</option>
+	                    {% endfor %}	
+                        </select>
+					<input type="text" name="subcatnm" placeholder="Sub Category" required=""> 
+					<input type="file" name="subcaticon" > 
+					<input type="submit" name="s" value="Add Sub Category">
+					<div class="forgot-grid"  align="center">
+						<!-- Modal -->
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	</section>
+
+{% endblock %}

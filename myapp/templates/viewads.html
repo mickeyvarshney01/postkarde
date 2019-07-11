@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block img1 %}
+{% endblock %}
+
+{% block img2 %}
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+{% block category %}
+
+<style>
+*{
+	padding: 0px;
+	margin: 0px;
+}	
+#filter
+{
+  height:20%;
+  width:80%;
+  border:1px solid gray;
+  text-align: center;
+  margin-top:20px;
+  margin-left:150px;  
+
+}
+#filter1
+{
+  height:50%;
+  width:50%;
+  float: left;
+}
+#filter2
+{
+  height:50%;
+  width:100%;
+  margin-top:0px; 
+}
+.box123{
+    outline: none;
+    padding: 12px;
+    border: 1px solid #086FDF;
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 1px;
+    width:30%;
+    margin-bottom: 15px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+}
+
+</style>
+
+
+<div id="filter">
+		<div id="filter1">
+		<h2><b>Filter By Price :</b></h2>
+		<hr style="background-color: red;">
+		<form action="" method="get" class="form">
+		<input type="text" name="sprice" class="box123" placeholder="Starting Price limit"/>
+		&nbsp;-&nbsp;
+		<input type="text" name="eprice" class="box123" placeholder="Ending Price limit"/>
+		<input type="hidden" name="scnm" value={{scnm}} />
+		<input type="submit" value="Filter" class="btn btn-success" />
+		</form>
+		</div>
+		<div id="filter2">
+		<h2><b>Filter City :</b></h2>
+		<hr>	
+		<form action="" method="get">
+		<select name="adscity" style="width:250px;" class="box123">
+			<option>Select City</option>
+			<optgroup label="Madhya Pradesh">
+				<option>Indore</option>
+				<option>Ujjain</option>
+				<option>Bhopal</option>
+			</optgroup>
+			<optgroup label="Maharastra">
+				<option>Mumbai</option>
+				<option>Pune</option>
+				<option>Nasik</option>
+			</optgroup>
+			</select>
+		&nbsp;&nbsp;&nbsp;
+		<input type="hidden" name="scnm" value={{scnm}} />		
+		<input type="submit"  value="Filter" class="btn btn-success" />
+		</form>
+
+		</div>
+</div>
+<hr>
+{% endblock %}
+
+{% block banner %}
+<!-- /new_arrivals --> 
+<div class="new_arrivals_agile_w3ls_info"> 
+	<div class="container">		
+			<div id="horizontalTab">
+					<ul class="resp-tabs-list">
+						<li>Advertisments For Sale</li>
+					</ul>
+				<div class="resp-tabs-container">
+				<!--/tab_one-->
+					<div class="tab1">
+							{% for row in adslist %}	
+							<a href={{curl}}viewads/?scnm={{row.subcatnm}}  title={{row.subcatnm}} >			
+							
+						<div class="col-md-3 product-men">
+							<div class="men-pro-item simpleCart_shelfItem">
+								<div class="men-thumb-item">
+									<img src={{media_url}}/{{row.file1}} alt="" class="pro-image-front">
+												<img src={{media_url}}/{{row.file1}} alt="" class="pro-image-back">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a href={{curl}}buylogin/?adsid={{row.adsid}} class="link-product-add-cart">BUY</a>
+											</div>
+											
+										</div>
+										
+										
+								</div>
+								<div class="item-info-product ">
+									<h4></h4>
+									
+									<div class="">
+									<h3>	
+									<span>Title:-</span>{{row.adstitle}}
+								    </h3>
+								    <hr>
+								    <h3>	
+									<span>Price:-</span>
+									{{row.adsprice}}
+									</h3>
+									<hr>
+
+									<h3>	
+									<span>Description:-</span>
+									{{row.adsdescription}}
+									</h3>					
+									</div>
+																		
+								</div>
+								
+							
+							</div>
+						</div>
+					</a>
+					{% endfor %}	
+						<div class="clearfix"></div>
+					
+					</div>
+				
+					<!--//tab_one-->
+											
+				</div>
+			</div>	
+		</div>
+	</div>
+<!-- //new_arrivals -->
+{% endblock %}
+
+
+
+{% block grid %}
+{% endblock %}

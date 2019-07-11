@@ -1,0 +1,32 @@
+{% extends 'userhome.html' %}
+{% block category %}
+<center><h1>View Category</h1></center>  
+       <table class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Bidding Id</th>
+                <th>Bidding Price</th>
+                <th>Bidding Time</th> 
+            	<th>Ads Title</th>
+            	<th>Ads Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            {% for row in blist %}
+            <tr>
+                <td>{{row.uid}}</td>
+                <td>{{row.nprice}}</td>
+            	<td>{{row.btime}}</td> 	
+                	{% for row in vlist %}
+                	<td>{{row.adstitle}}</td>
+	                <td>{{row.adsprice}}</td>
+	                {% endfor %}
+            </tr>
+            {% endfor %}
+            
+
+        </tbody>
+    </table>
+
+{% endblock %}

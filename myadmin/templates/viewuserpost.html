@@ -1,0 +1,51 @@
+{% extends 'adminhome.html' %}
+{% load static %}
+        {% block table %} 
+        <center><h1>View User Advertisment</h1></center> 
+       <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Ads Id</th>
+                <th>User Id</th>
+                <th>Ads Title</th>
+                <th>Ads Subcategory</th>
+                <th>Ads Descripition</th>
+                <th>Ads Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in userpost %}
+            <tr>
+                <td>{{row.adsid}}</td>
+                <td>{{row.uid}}</td>
+                <td>{{row.adstitle}}</td>
+                <td>{{row.adssubcat}}</td>
+                <td>{{row.adsdescription}}</td>
+                <td>{{row.adsprice}}</td>
+                <td>
+                {% if row.status %}
+                <a href={{curl}}myadmin/viewuserpoststatus?adsid={{row.adsid}}&status=block>                    
+                <img title="Block Users" src="{% static 'images/active.png' %}" height="40" width="40" />
+                </a>
+                {% else %}
+                <a href={{curl}}myadmin/viewuserpoststatus?adsid={{row.adsid}}&status=unblock>
+                <img title="Un-Block Users" src="{% static 'images/deactivated.png' %}" height="40" width="40" />       
+                </a>
+                {% endif %}
+                </td>
+                <td>
+                <a href={{curl}}myadmin/viewuserpoststatus?adsid={{row.adsid}}&status=delete>
+                <img title="Un-Block Users" src="{% static 'images/delete.png' %}" height="40" width="40" />
+                </a>
+                </td>            
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}
+
+
+    

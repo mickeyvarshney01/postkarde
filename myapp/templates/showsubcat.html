@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block slider %}					
+<!-- /new_arrivals --> 
+<div class="new_arrivals_agile_w3ls_info"> 
+	<div class="container">		
+			<div id="horizontalTab">
+					<ul class="resp-tabs-list">
+						<li> Show Sub Category's</li>
+					</ul>
+				<div class="resp-tabs-container">
+				<!--/tab_one-->
+					<div class="tab1">
+							{% for row in subclist %}	
+							<a href={{curl}}viewads/?scnm={{row.subcatnm}}  title={{row.subcatnm}} >			
+							
+						<div class="col-md-3 product-men">
+							<div class="men-pro-item simpleCart_shelfItem">
+								<div class="men-thumb-item">
+									<img src={{media_url}}/{{row.subcaticon}} alt="" class="pro-image-front">
+												<img src={{media_url}}/{{row.subcaticon}} alt="" class="pro-image-back">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a class="link-product-add-cart" href={{curl}}viewads/?scnm={{row.subcatnm}}  title={{row.subcatnm}}>Details</a>
+											</div>
+										</div>
+										
+										
+								</div>
+								<div class="item-info-product ">
+									<h4><a href={{curl}}viewads/?scnm={{row.subcatnm}}  title={{row.subcatnm}}>{{row.subcatnm}}</a></h4>
+									
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+														
+									</div>
+																		
+								</div>
+								
+							
+							</div>
+						</div>
+					</a>
+					{% endfor %}	
+						<div class="clearfix"></div>
+					
+					</div>
+				
+					<!--//tab_one-->
+											
+				</div>
+			</div>	
+		</div>
+	</div>
+<!-- //new_arrivals -->
+{% endblock %}
+
+
+{% block img1 %}
+{% endblock %}
+{% block img2 %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+{% block grid %}
+<!--/grids-->
+<div class="coupons">
+		<div class="coupons-grids text-center">
+			<div class="w3layouts_mail_grid">
+				{% for row in clist %}
+				<div class="col-md-3 w3layouts_mail_grid_left">
+					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+					</div>
+					<div class="w3layouts_mail_grid_left2">
+						<h3><a href={{curl}}showsubcat/?cnm={{row.catnm}}  title={{row.catnm}}>{{row.catnm}}</a></h3>
+						
+					</div>
+				</div>
+				{% endfor %}
+				
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+		</div>
+</div>
+<!--grids-->
+{% endblock %}
+
+
